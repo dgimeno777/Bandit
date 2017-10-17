@@ -1,6 +1,8 @@
 from lxml import html
 import requests
 
+dbFile = open("C:\\Users\\Danny\\Desktop\\Computer Science\\Bandit\\agency_scrapers\\output\\uta-full-output.txt", "w")
+
 page = requests.get('http://music.utatouring.com/full-roster/', headers={'User-Agent':'test'})
 tree = html.fromstring(page.content)
 
@@ -9,8 +11,6 @@ artists = tree.xpath('//div[@class="ut-one-third"]/div/a/text()')
 artistsScrubbed = "";
 for artist in artists:
     if len(artist) > 1:
-        artistsScrubbed += artist + ", ";
+        dbFile.write(artist+"\n");
 
-artistsScrubbed = artistsScrubbed[:len(artistsScrubbed)-2];
-
-print (artistsScrubbed);
+dbFile.close()
