@@ -15,4 +15,4 @@ Supreme-Cut-supremeentertainment.net/artists/
 GCT-Full-www.groundcontroltouring.com/artists
 Panache-Full-www.panacherock.com/artists/
 Feldman-Full-feldman-agency.com/roster
-CAA-Full-https://touring.caa.com/
+CAA-Full-https://touring.caa.com/ (for some reason I'm unable to scrape for this website no matter what data I try to get, more research needed)
