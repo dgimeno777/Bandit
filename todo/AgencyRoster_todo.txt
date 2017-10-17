@@ -1,10 +1,10 @@
 Done:
 UTA-Full-music.utatouring.com/full-roster/
 UTA-USA-music.utatouring.com/usa-roster/
-
-Not Done:
 Paradigm-Full-www.paradigmagency.com/music/
 Coda-Full-www.codaagency.com/roster/artist
+
+Not Done:
 AGI-Full-www.artistgrp.info/roster/
 Circle-Full-www.circletalentagency.com/roster.php
 Billions-Full-billions.com

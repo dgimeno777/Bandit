@@ -8,7 +8,6 @@ tree = html.fromstring(page.content)
 
 #This will create a list of artists:
 artists = tree.xpath('//div[@class="ut-one-third"]/div/a/text()')
-artistsScrubbed = "";
 for artist in artists:
     if len(artist) > 1:
         dbFile.write(artist+"\n");
