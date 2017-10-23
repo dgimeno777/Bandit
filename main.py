@@ -1,18 +1,21 @@
 import sys
 import spotipy
 import spotipy.util as util
+import spotify.lib.search as srch
 
 def main():
     scope = 'user-library-read';
 
     iniVals = getIniVals()
 
-    username = iniVals["USERNAME"]
+    username = iniVals["SPOTIFY_USERNAME"]
 
     token = util.prompt_for_user_token(username, scope)
 
     if token:
         sp = spotipy.Spotify(auth=token);
+        results = srch.searchByArtistName(sp, 'Laura Stevenson');
+        print(results);
         # Pass sp into other functions for desired functionality
     else:
         print("Can't get token for", username)
