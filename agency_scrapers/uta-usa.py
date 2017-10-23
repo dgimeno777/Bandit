@@ -1,7 +1,7 @@
 from lxml import html
 import requests
 
-dbFile = open("C:\\Users\\Danny\\Desktop\\Computer Science\\Bandit\\agency_scrapers\\output\\uta-usa-output.txt", "w")
+dbFile = open(".\\output\\uta-usa-output.txt", "w")
 
 
 page = requests.get('http://music.utatouring.com/usa-roster/', headers={'User-Agent':'test'})

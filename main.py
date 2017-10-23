@@ -1,7 +1,8 @@
 import sys
 import spotipy
 import spotipy.util as util
-import spotify.lib.search as srch
+import spotify.lib.search as search
+import agency_scrapers.scraper as scrape
 
 def main():
     scope = 'user-library-read';
@@ -14,7 +15,7 @@ def main():
 
     if token:
         sp = spotipy.Spotify(auth=token);
-        results = srch.searchByArtistName(sp, 'Laura Stevenson');
+        results = search.searchByArtistName(sp, 'Laura Stevenson');
         print(results);
         # Pass sp into other functions for desired functionality
     else:
@@ -22,7 +23,7 @@ def main():
 
 # Creates a map of all values in the main ini file
 def getIniVals():
-    file = open('main.ini', 'r')
+    file = open('./ini/main.ini', 'r')
     valueMap = {}
     for line in file:
         if len(line) > 2:

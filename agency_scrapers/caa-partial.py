@@ -1,7 +1,7 @@
 from lxml import html
 import requests
 
-dbFile = open("C:\\Users\\Danny\\Desktop\\Computer Science\\Bandit\\agency_scrapers\\output\\caa-partial-output.txt", "w")
+dbFile = open(".\\output\\caa-partial-output.txt", "w")
 
 genres = ["pop", "rock", "hip-hop", "electronic", "rb"]
 

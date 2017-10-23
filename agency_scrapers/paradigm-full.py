@@ -2,7 +2,7 @@ from lxml import html
 import requests
 
 paradigm_lists = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0"]
-dbFile = open("C:\\Users\\Danny\\Desktop\\Computer Science\\Bandit\\agency_scrapers\\output\\paradigm-full-output.txt",'w')
+dbFile = open(".\\output\\paradigm-full-output.txt",'w')
 
 for list in paradigm_lists:
     page = requests.get("http://www.paradigmagency.com/music/list/" + list + "/", headers={'User-Agent':'test'})
