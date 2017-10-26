@@ -8,6 +8,7 @@ import agency_scrapers.coda_full
 import agency_scrapers.paradigm_full
 import agency_scrapers.uta_full
 import agency_scrapers.uta_usa
+import agency_scrapers.wme_contemporary
 
 def scrapeAgency(agencyName, version):
 	roster = agencyName.lower() + '_' + version.lower()
@@ -29,4 +30,6 @@ def scrapeAgency(agencyName, version):
 		agency_scrapers.uta_full.scrape()
 	elif roster == 'uta_usa': 
 		agency_scrapers.uta_usa.scrape()
+	elif roster == 'wme_contemporary':
+		agency_scrapers.wme_contemporary.scrape()
 	

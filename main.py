@@ -22,6 +22,8 @@ def main():
             response = input("Please enter a command (report):");
             if response == 'report':
                 makeReport(sp)
+            elif response == 'q' or response == 'quit':
+                break;
             else:
                 displayHelp()
         # Pass sp into other functions for desired functionality
@@ -64,7 +66,7 @@ def doScrape(agency, roster):
     scrape.scrapeAgency(agency, roster)
     
 def displayHelp():
-    print('Welcome to Bandit! You can currently use the "report" or "help" functions')
+    print('Welcome to Bandit! You can currently use the "report", "help", and "quit" functions')
 
 # Creates a map of all values in the main ini file
 def getIniVals():
