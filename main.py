@@ -31,13 +31,14 @@ def makeReport(sp):
     agency = input("Enter the agency: ")
     roster = input("Enter the roster(full): ")
     doScrape(agency, roster);
-    dbFile = open('./output/'+agency+'_'+roster+'-output.txt', 'r')
+    dbFile = open('./scraper_output/'+agency+'_'+roster+'-output.txt', 'r')
     now = datetime.datetime.now()
     reportFile = open('./reports/'+
                       'report_'+
                       now.strftime("%Y-%m-%d")+
                       '_'+
                       now.strftime("%H-%M-%S")+
+                      '_'+
                       agency + '-' + roster, 'w+')
     reportFile.write('"ArtistName",TotalSpotifyFollowers\n')
     delim = ','
@@ -56,6 +57,7 @@ def makeReport(sp):
     
 
 def doScrape(agency, roster):
+    print('Scraping for ' + agency + '_' + roster + '...')
     scrape.scrapeAgency(agency, roster)
     
 def displayHelp():

@@ -2,7 +2,7 @@ from lxml import html
 import requests
 
 def scrape():
-	dbFile = open(".\\output\\coda_full-output.txt", "w")
+	dbFile = open(".\\scraper_output\\coda_full-output.txt", "w+")
 
 	page = requests.get('http://www.codaagency.com/roster/artist', headers={'User-Agent':'test'})
 	tree = html.fromstring(page.content)

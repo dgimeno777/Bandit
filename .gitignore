@@ -55,3 +55,5 @@ spotipy/.cache-dannygmoe
 *.cache-dannygmoe
 *.pyc
 *.pyc
+*.pyc
+spotify/lib/__pycache__/search.cpython-36.pyc

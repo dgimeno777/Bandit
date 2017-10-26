@@ -2,7 +2,7 @@ from lxml import html
 import requests
 
 def scrape():
-	dbFile = open(".\\output\\uta_usa-output.txt", "w")
+	dbFile = open(".\\scraper_output\\uta_usa-output.txt", "w+")
 
 
 	page = requests.get('http://music.utatouring.com/usa-roster/', headers={'User-Agent':'test'})

@@ -1,8 +1,9 @@
 from lxml import html
 import requests
 
+# Currently broken
 def scrape():
-	dbFile = open(".\\output\\caa_partial-output.txt", "w")
+	dbFile = open(".\\scraper_output\\caa_partial-output.txt", "w+")
 
 	genres = ["pop", "rock", "hip-hop", "electronic", "rb"]
 

@@ -2,7 +2,7 @@ from lxml import html
 import requests
 
 def scrape():
-	dbFile = open(".\\output\\apa_full-output.txt", "w+")
+	dbFile = open(".\\scraper_output\\apa_full-output.txt", "w+")
 
 	page = requests.get('http://touring.apa-agency.com/roster/list', headers={'User-Agent':'test'})
 	tree = html.fromstring(page.content)

@@ -16,11 +16,17 @@ I am also planning to use facebook to get likes of artists and google trends to 
 3) Setup Spotipy env vars on your machine to connect to spotify api (quick google should show you how to do this on both windows and mac)
    - SPOTIPY_CLIENT_ID      = Spotify API Client_ID
    - SPOTIPY_CLIENT_SECRET  = Spotify API Client_Secret
-   - SPOTIPY_REDIRECT_URI   = http://localhost:8888/callback
+   - SPOTIPY_REDIRECT_URI   = Spotify API Redirect_URI
 
 4) Copy this repo to your machine or download as a zip and unzip
 5) Using Python Idle (installed in step 1), open the 'main.py' file from the downloaded Bandit project and run the module.
 6) Bandit should now be running (to the extent that it can).
 
 # Workflows
-Coming soon...
+## Get report for agency roster
+1. Run main.py
+1.5. You may have to give Bandit access to your spotify in a web window and copy-paste the url after done
+2. Enter 'report'
+3. Enter 'agency' (check AgencyRoster_todo for finished rosters)
+4. Enter 'roster' (usually 'full' but currently uta also has a 'usa' one)
+

@@ -3,7 +3,7 @@ import requests
 
 def scrape():
 	paradigm_lists = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0"]
-	dbFile = open(".\\output\\paradigm_full-output.txt",'w')
+	dbFile = open(".\\scraper_output\\paradigm_full-output.txt",'w+')
 
 	for list in paradigm_lists:
 		page = requests.get("http://www.paradigmagency.com/music/list/" + list + "/", headers={'User-Agent':'test'})
