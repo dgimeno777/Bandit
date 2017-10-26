@@ -14,6 +14,6 @@ def scrape():
 			try:
 				dbFile.write(artist+"\n")
 			except UnicodeEncodeError:
-				print(artist)
+				print('Encoding error on: '+artist)
 
 	dbFile.close()
