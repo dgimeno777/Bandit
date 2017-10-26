@@ -8,7 +8,7 @@ def scrape():
 	tree = html.fromstring(page.content)
 
 	#This will create a list of artists:
-	artists = tree.xpath('//div[@id="roster-all"]/ul/li/a/text()')
+	artists = tree.xpath('//div[@id="roster-touring"]/ul/li/a/text()')
 	
 	for artist in artists:
 		if len(artist) > 1:

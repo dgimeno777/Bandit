@@ -1,4 +1,5 @@
 import sys
+import os.path
 import datetime
 import spotipy
 import spotipy.util as util
@@ -40,7 +41,8 @@ def makeReport(sp):
                       '_'+
                       now.strftime("%H-%M-%S")+
                       '_'+
-                      agency + '-' + roster, 'w+')
+                      agency + '-' + roster+
+                      '.csv', 'w+')
     reportFile.write('"ArtistName",TotalSpotifyFollowers\n')
     delim = ','
     for artist in dbFile:
@@ -52,7 +54,7 @@ def makeReport(sp):
                              str(spotifyInfo["artists"]["items"][0]["followers"]["total"])+
                              '\n')
         else:
-            reportFile.write('No information found for: '+artist+'\n')
+            reportFile.write('"No information found for: '+artist+'",-1\n')
     reportFile.close()
     dbFile.close()
     
