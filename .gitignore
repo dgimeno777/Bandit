@@ -48,6 +48,10 @@ Temporary Items
 
 # Agency Scraper Results
 agency_scrapers/output
+scraper_output
+reports
 test/test realm.py
 spotipy/.cache-dannygmoe
 *.cache-dannygmoe
+*.pyc
+*.pyc

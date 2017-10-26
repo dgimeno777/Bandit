@@ -1,4 +1,5 @@
 import sys
+import datetime
 import spotipy
 import spotipy.util as util
 import spotify.lib.search as search
@@ -15,11 +16,50 @@ def main():
 
     if token:
         sp = spotipy.Spotify(auth=token);
-        results = search.searchByArtistName(sp, 'Laura Stevenson');
-        print(results);
+        #results = search.searchByArtistName(sp, 'Laura Stevenson');
+        while True:
+            response = input("Please enter a command (report):");
+            if response == 'report':
+                makeReport(sp)
+            else:
+                displayHelp()
         # Pass sp into other functions for desired functionality
     else:
         print("Can't get token for", username)
+
+def makeReport(sp):
+    agency = input("Enter the agency: ")
+    roster = input("Enter the roster(full): ")
+    doScrape(agency, roster);
+    dbFile = open('./output/'+agency+'_'+roster+'-output.txt', 'r')
+    now = datetime.datetime.now()
+    reportFile = open('./reports/'+
+                      'report_'+
+                      now.strftime("%Y-%m-%d")+
+                      '_'+
+                      now.strftime("%H-%M-%S")+
+                      agency + '-' + roster, 'w+')
+    reportFile.write('"ArtistName",TotalSpotifyFollowers\n')
+    delim = ','
+    for artist in dbFile:
+        artist = artist.strip()
+        spotifyInfo = search.searchByArtistName(sp, artist)
+        print(artist)
+        if spotifyInfo["artists"]["items"]:
+            reportFile.write('"'+artist+'"'+delim+
+                             str(spotifyInfo["artists"]["items"][0]["followers"]["total"])+
+                             '\n')
+        else:
+            reportFile.write("No information found for: "+artist)
+    reportFile.close()
+    dbFile.close()
+    
+
+def doScrape(agency, roster):
+    scrape.scrapeAgency(agency, roster)
+    
+def displayHelp():
+    print('Welcome to Bandit! You can currently use the "report" or "help" functions')
 
 # Creates a map of all values in the main ini file
 def getIniVals():

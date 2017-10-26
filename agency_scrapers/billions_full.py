@@ -2,7 +2,7 @@ from lxml import html
 import requests
 
 def scrape():
-	dbFile = open(".\\output\\billions-full-output.txt", "w")
+	dbFile = open(".\\output\\billions_full-output.txt", "w")
 
 	page = requests.get('http://billions.com/news/', headers={'User-Agent':'test'})
 	tree = html.fromstring(page.content)
