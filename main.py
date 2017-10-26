@@ -33,6 +33,7 @@ def makeReport(sp):
     doScrape(agency, roster);
     dbFile = open('./scraper_output/'+agency+'_'+roster+'-output.txt', 'r')
     now = datetime.datetime.now()
+    print('Creating report for ' + agency + '_' + roster + '...')
     reportFile = open('./reports/'+
                       'report_'+
                       now.strftime("%Y-%m-%d")+
@@ -51,7 +52,7 @@ def makeReport(sp):
                              str(spotifyInfo["artists"]["items"][0]["followers"]["total"])+
                              '\n')
         else:
-            reportFile.write("No information found for: "+artist)
+            reportFile.write('No information found for: '+artist+'\n')
     reportFile.close()
     dbFile.close()
     
