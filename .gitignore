@@ -50,7 +50,7 @@ Temporary Items
 agency_scrapers/output
 scraper_output
 reports
-test/test realm.py
+test
 spotipy/.cache-dannygmoe
 *.cache-dannygmoe
 *.pyc
