@@ -12,8 +12,9 @@ def main():
     iniVals = getIniVals()
 
     username = iniVals["SPOTIFY_USERNAME"]
-
+    print("Getting token")
     token = util.prompt_for_user_token(username, scope)
+    print("Got token: "+str(token))
 
     if token:
         sp = spotipy.Spotify(auth=token);
@@ -51,9 +52,16 @@ def makeReport(sp):
         artist = artist.strip()
         spotifyInfo = search.searchByArtistName(sp, artist)
         print(artist)
-        if spotifyInfo["artists"]["items"]:
+        artistSearchItemIndex = -1;
+        indexCount = 0;
+        for artistInfo in spotifyInfo["artists"]["items"]:
+            if artistInfo["name"].lower() == artist.lower():
+                artistSearchItemIndex = indexCount
+                break
+            indexCount += 1
+        if artistSearchItemIndex >= 0:
             reportFile.write('"'+artist+'"'+delim+
-                             str(spotifyInfo["artists"]["items"][0]["followers"]["total"])+
+                             str(spotifyInfo["artists"]["items"][artistSearchItemIndex]["followers"]["total"])+
                              '\n')
         else:
             reportFile.write('"No information found for: '+artist+'",-1\n')
