@@ -36,16 +36,8 @@ def makeReport(sp):
     roster = input("Enter the roster(full): ")
     doScrape(agency, roster);
     dbFile = open('./scraper_output/'+agency+'_'+roster+'-output.txt', 'r')
-    now = datetime.datetime.now()
     print('Creating report for ' + agency + '_' + roster + '...')
-    reportFile = open('./reports/'+
-                      'report_'+
-                      now.strftime("%Y-%m-%d")+
-                      '_'+
-                      now.strftime("%H-%M-%S")+
-                      '_'+
-                      agency + '-' + roster+
-                      '.csv', 'w+')
+    reportFile = open(makeReportFileName(agency, roster), 'w+')
     reportFile.write('"ArtistName",TotalSpotifyFollowers\n')
     delim = ','
     for artist in dbFile:
@@ -61,7 +53,7 @@ def makeReport(sp):
             indexCount += 1
         if artistSearchItemIndex >= 0:
             reportFile.write('"'+artist+'"'+delim+
-                             str(spotifyInfo["artists"]["items"][artistSearchItemIndex]["followers"]["total"])+
+                             + getSpotifyTotalFollowers(spotifyInfo, artistSearchItemIndex)
                              '\n')
         else:
             reportFile.write('"No information found for: '+artist+'",-1\n')
@@ -72,6 +64,18 @@ def makeReport(sp):
 def doScrape(agency, roster):
     print('Scraping for ' + agency + '_' + roster + '...')
     scrape.scrapeAgency(agency, roster)
+
+def getSpotifyTotalFollowers(spotifyInfo, artistSearchItemIndex):
+    return str(spotifyInfo["artists"]["items"][artistSearchItemIndex]["followers"]["total"])
+
+def makeReportFileName(agency, roster):
+    now = datetime.datetime.now()
+    return './reports/'+
+            'report_'+
+            now.strftime("%Y-%m-%d")+'_'+
+            now.strftime("%H-%M-%S")+'_'+
+            agency + '-' + roster+
+            '.csv'
     
 def displayHelp():
     print('Welcome to Bandit! You can currently use the "report", "help", and "quit" functions')
